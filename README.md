@@ -2,4 +2,4 @@
 
 wow
 
-check out this video of (Smash Mouth)[/video/SmashMouth%20-%20All%20Star.mp4]
+check out this video of [Smash Mouth](/video/SmashMouth%20-%20All%20Star.mp4)
