@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Fullscreen OpenGL</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="manifest" href="manifest.json">
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        /*overflow: hidden;*/
+        background-color:black;
+        overflow: auto;
+      }
+      #navigation_bar {
+          background-color:#900;
+          height:50px;
+          left:0px;
+          padding-right:10px;
+          text-align:right;
+          top:0px;
+          width:100%;
+          z-index:0;
+      }
+      canvas {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+
+    <script>
+      function resizeCanvas() {
+        const canvas = Module.canvas;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        if (Module.ctx) {
+          Module.ctx.viewport(0, 0, canvas.width, canvas.height);
+        }
+      }
+
+      window.addEventListener('resize', resizeCanvas);
+
+      var Module = {
+        canvas: document.getElementById('canvas'),
+        onRuntimeInitialized: resizeCanvas
+      };
+    </script>
+
+    {{{ SCRIPT }}}
+  </body>
+</html>
